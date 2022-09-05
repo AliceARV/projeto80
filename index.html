@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=initial-scale=1.0">
+    <title>projeto80</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <h3>lista de convidados</h3>
+    <div>
+        <span>1</span>
+        <input type="text" placeholder="nome do convidados" id="nome1">
+    </div>
+    <div>   
+        <span>2</span>
+        <input type="text" placeholder="nome do convidados" id="nome2">
+    </div>
+
+    <div>
+        <span>3</span>
+        <input type="text" placeholder="nome do convidados" id="nome3">
+    </div>
+    <div>
+        <span>4</span>
+        <input type="text" placeholder="nome do convidados" id="nome4">
+    </div>
+    <div>
+        <button onclick="enviar()" id="enviarbt">enviar</button>
+    </div> 
+    <br>
+    <div id="splay"></div>
+    <div>
+        <button onclick="organizar()" id="organizarbt" style="display:none">organizar</button>
+    </div>
+    <br>
+    <div>
+       
+   
+    <div id="display2"></div>
+    <script>
+         var estudantes=[];
+        var estudantesdisplay=[];
+        function enviar()
+        {
+            for (var j=1; j<=4; j++){
+                var convidados=document.getElementById("nome"+j).value;
+                estudantes.push(convidados);
+            }
+
+            document.getElementById("splay").innerHTML=estudantes;
+            document.getElementById("enviarbt").style.display="none";
+            document.getElementById("organizarbt").style.display="inline-block";
+        }
+
+        function organizar()
+        {  
+            estudantes.sort();
+            var displaysort=[];
+            var tamanhoestudantes= estudantes.length;
+            for(var k=0; k<tamanhoestudantes; k++){
+             displaysort.push("<h4>"+estudantes[k]+"</h4>");
+            }
+
+            var vecna= displaysort.join(" ");
+            document.getElementById("display2").innerHTML=vecna;
+        }
+
+    </script>
+    
+</body>
+</html>
